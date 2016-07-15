@@ -11,7 +11,7 @@ System.register(['angular2/core', './notes/note.component'], function(exports_1,
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, note_component_1;
-    var MyComponent;
+    var PIMCComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,21 +21,21 @@ System.register(['angular2/core', './notes/note.component'], function(exports_1,
                 note_component_1 = note_component_1_1;
             }],
         execute: function() {
-            MyComponent = (function () {
-                function MyComponent() {
+            PIMCComponent = (function () {
+                function PIMCComponent() {
                     this.title = "Kevin";
                 }
-                MyComponent = __decorate([
+                PIMCComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-app',
                         template: '<p>Hello {{title}}</p> <pm-note></pm-note>',
                         directives: [note_component_1.NoteComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], MyComponent);
-                return MyComponent;
+                ], PIMCComponent);
+                return PIMCComponent;
             }());
-            exports_1("MyComponent", MyComponent);
+            exports_1("PIMCComponent", PIMCComponent);
         }
     }
 });

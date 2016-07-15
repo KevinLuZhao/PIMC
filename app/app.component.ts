@@ -10,7 +10,7 @@ import {NoteComponent} from './notes/note.component';
 export /**
  * Component
  */
-class MyComponent {
+class PIMCComponent {
     title: string = "Kevin"
 }
 
