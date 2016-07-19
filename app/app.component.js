@@ -28,7 +28,7 @@ System.register(['angular2/core', './notes/note.component'], function(exports_1,
                 PIMCComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-app',
-                        template: '<p>Hello {{title}}</p> <pm-note></pm-note>',
+                        template: '<pm-note></pm-note>',
                         directives: [note_component_1.NoteComponent]
                     }), 
                     __metadata('design:paramtypes', [])

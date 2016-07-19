@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './note.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,35 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, note_service_1;
     var NoteComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (note_service_1_1) {
+                note_service_1 = note_service_1_1;
             }],
         execute: function() {
             NoteComponent = (function () {
-                function NoteComponent() {
+                function NoteComponent(noteService) {
+                    this.noteService = noteService;
                     this.PageTitle = "Note List";
                 }
+                NoteComponent.prototype.ngOnInit = function () { this.getNotes(); };
+                NoteComponent.prototype.getNotes = function () {
+                    var _this = this;
+                    return this.noteService.getNotes()
+                        .subscribe(function (notes) { return _this.noteList = notes; }, function (error) { return _this.errorMessage = error; });
+                };
                 NoteComponent = __decorate([
                     core_1.Component({
                         selector: "pm-note",
+                        providers: [note_service_1.NoteService],
                         templateUrl: "app/notes/note.component.html"
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [note_service_1.NoteService])
                 ], NoteComponent);
                 return NoteComponent;
             }());

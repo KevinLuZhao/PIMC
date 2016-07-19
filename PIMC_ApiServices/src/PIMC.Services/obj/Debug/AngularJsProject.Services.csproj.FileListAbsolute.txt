@@ -1,0 +1,9 @@
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\bin\Debug\AngularJsProject.Services.dll
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\bin\Debug\AngularJsProject.Services.pdb
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\bin\Debug\AngularJsProject.Database.dll
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\bin\Debug\AngularJsProject.Model.dll
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\bin\Debug\AngularJsProject.Database.pdb
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\bin\Debug\AngularJsProject.Model.pdb
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\obj\Debug\AngularJsProject.Services.csprojResolveAssemblyReference.cache
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\obj\Debug\AngularJsProject.Services.dll
+c:\users\kevin.lu\documents\visual studio 2015\Projects\AngularJsProject\AngularJsProject.Services\obj\Debug\AngularJsProject.Services.pdb

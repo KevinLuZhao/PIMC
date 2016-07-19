@@ -1,0 +1,7 @@
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Database\obj\Debug\PIMC.Database.csprojResolveAssemblyReference.cache
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Database\bin\Debug\PIMC.Database.dll
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Database\bin\Debug\PIMC.Database.pdb
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Database\bin\Debug\PIMC.Model.dll
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Database\bin\Debug\PIMC.Model.pdb
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Database\obj\Debug\PIMC.Database.dll
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Database\obj\Debug\PIMC.Database.pdb

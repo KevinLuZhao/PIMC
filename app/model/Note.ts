@@ -1,4 +1,4 @@
-export class Note{
+export class Note {
     Id :Number;
     Date: Date;
     Subject: string;

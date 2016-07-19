@@ -1,0 +1,5 @@
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Model\bin\Debug\PIMC.Model.dll
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Model\bin\Debug\PIMC.Model.pdb
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Model\obj\Debug\PIMC.Model.dll
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Model\obj\Debug\PIMC.Model.pdb
+D:\git\PIM\PIMC_ApiServices\src\PIMC.Model\obj\Debug\PIMC.Model.csprojResolveAssemblyReference.cache

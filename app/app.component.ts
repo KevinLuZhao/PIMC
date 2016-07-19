@@ -1,9 +1,10 @@
 import { Component } from 'angular2/core';
 import {NoteComponent} from './notes/note.component';
+import { Note } from './model/note'
 
 @Component({
     selector: 'pm-app',
-    template: '<p>Hello {{title}}</p> <pm-note></pm-note>',
+    template: '<pm-note></pm-note>',
     directives: [NoteComponent]
 })
 

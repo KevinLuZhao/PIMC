@@ -1348,6 +1348,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "PIMC.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v2.0"
+      },
       "System.Collections/4.0.0": {
         "type": "package",
         "compile": {
@@ -5025,6 +5029,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
+      "PIMC.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v2.0"
+      },
       "System.Collections/4.0.0": {
         "type": "package",
         "compile": {
@@ -6585,6 +6593,10 @@
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
         }
+      },
+      "PIMC.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v2.0"
       },
       "System.Collections/4.0.0": {
         "type": "package",
@@ -11850,6 +11862,10 @@
     }
   },
   "libraries": {
+    "PIMC.Model/1.0.0": {
+      "type": "project",
+      "path": "../../wrap/PIMC.Model/project.json"
+    },
     "Microsoft.AspNet.Antiforgery/1.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -16724,7 +16740,10 @@
       "Microsoft.Extensions.Logging.Console >= 1.0.0-rc1-final",
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc1-final"
     ],
-    "DNX,Version=v4.5.1": [],
+    "DNX,Version=v4.5.1": [
+      "PIMC.Model >= 1.0.0-*",
+      "PIMC.Services >= 1.0.0-*"
+    ],
     "DNXCore,Version=v5.0": []
   }
 }

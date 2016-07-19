@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "compilationOptions": {
     "emitEntryPoint": true
@@ -21,7 +21,12 @@
   },
 
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "dependencies": {
+        "PIMC.Model": "1.0.0-*",
+        "PIMC.Services": "1.0.0-*"
+      }
+    },
     "dnxcore50": { }
   },
 
