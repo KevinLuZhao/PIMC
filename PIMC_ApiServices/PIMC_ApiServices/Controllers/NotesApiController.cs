@@ -11,7 +11,7 @@ namespace PIMC_ApiServices.Controllers
 {
     public class NotesApiController : ApiController
     {
-        // GET: api/NotesWebApi
+        // GET: api/NotesApi
         public List<Note> Get()
         {
             NotesManager manager = new NotesManager();
