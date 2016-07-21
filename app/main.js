@@ -14,6 +14,7 @@ System.register(['angular2/platform/browser', 'angular2/http', './app.component'
                 app_component_1 = app_component_1_1;
             }],
         execute: function() {
+            //import { provideRouter, RouterConfig, ROUTER_DIRECTIVES } from 'angular2/router';
             browser_1.bootstrap(app_component_1.PIMCComponent, [http_1.HTTP_PROVIDERS]);
         }
     }

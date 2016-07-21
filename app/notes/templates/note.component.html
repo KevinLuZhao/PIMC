@@ -1,0 +1,16 @@
+<p3>{{PageTitle}}</p3>
+<div style="overflow: left">
+<table>
+    <tr>
+        <th>Subject</th>
+        <th>Date</th>
+    </tr>
+    <tr *ngFor='#note of noteList'>
+        <td><a (click)='onNotesSelected([note.Id])'>{{note.Subject}}</a></td>
+        <td>{{note.Date}}</td>
+    </tr>
+</table>
+</div>
+<div>
+    <pm-note-detail [NoteId]=2></pm-note-detail>
+</div>

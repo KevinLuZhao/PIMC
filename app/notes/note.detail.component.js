@@ -11,7 +11,7 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, note_service_1;
-    var NoteComponent;
+    var NoteDetailComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,35 +21,22 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
                 note_service_1 = note_service_1_1;
             }],
         execute: function() {
-            NoteComponent = (function () {
-                function NoteComponent(noteService) {
-                    this.noteService = noteService;
-                    this.PageTitle = "Note List";
+            NoteDetailComponent = (function () {
+                function NoteDetailComponent() {
                 }
-                NoteComponent.prototype.ngOnInit = function () { this.getNotes(); };
-                NoteComponent.prototype.getNotes = function () {
-                    var _this = this;
-                    return this.noteService.getNotes()
-                        .subscribe(function (notes) { return _this.noteList = notes; }, function (error) { return _this.errorMessage = error; });
-                };
-                NoteComponent.prototype.onNotesSelected = function (id) {
-                    //NoteDetailComponent.NoteId = 
-                };
-                NoteComponent.prototype.getNoteById = function (id) {
-                };
-                NoteComponent = __decorate([
+                NoteDetailComponent = __decorate([
                     core_1.Component({
-                        //selector: "pm-note",
+                        selector: 'pm-note-detail',
+                        templateUrl: 'app/note/templates/note.detail.components.html',
                         providers: [note_service_1.NoteService],
-                        templateUrl: "app/notes/templates/note.component.html",
-                        directives: [NoteComponent]
+                        inputs: ['NoteId']
                     }), 
-                    __metadata('design:paramtypes', [note_service_1.NoteService])
-                ], NoteComponent);
-                return NoteComponent;
+                    __metadata('design:paramtypes', [])
+                ], NoteDetailComponent);
+                return NoteDetailComponent;
             }());
-            exports_1("NoteComponent", NoteComponent);
+            exports_1("NoteDetailComponent", NoteDetailComponent);
         }
     }
 });
-//# sourceMappingURL=note.component.js.map
+//# sourceMappingURL=note.detail.component.js.map

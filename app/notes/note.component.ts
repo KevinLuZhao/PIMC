@@ -1,11 +1,13 @@
 import { Component } from 'angular2/core';
 import { NoteService } from './note.service';
-import { Note } from '../model/note'
+import { Note } from '../model/note';
+import { NoteDetailComponent } from './note.detail.component';
 
 @Component({
-    selector: "pm-note",
+    //selector: "pm-note",
     providers: [NoteService],
-    templateUrl: "app/notes/note.component.html"
+    templateUrl: "app/notes/templates/note.component.html",
+    directives: [NoteComponent]
 })
 
 /**
@@ -27,6 +29,10 @@ export class NoteComponent {
                     );
     }
     
+    onNotesSelected(id){
+        //NoteDetailComponent.NoteId = 
+    }
+
     getNoteById(id){
         
     }

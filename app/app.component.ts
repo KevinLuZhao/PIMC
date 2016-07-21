@@ -1,6 +1,6 @@
 import { Component } from 'angular2/core'
 import { Note } from './model/note'
-import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES, APP_BASE_HREF,LocationStrategy,RouteParams,ROUTER_BINDINGS } from 'angular2/router'
+import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router'
 
 import { WelcomeComponent } from './home/welcome.component'
 import { NoteComponent } from './notes/note.component';
