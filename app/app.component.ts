@@ -6,7 +6,6 @@ import { WelcomeComponent } from './home/welcome.component'
 import { NoteComponent } from './notes/note.component';
 
 import { bootstrap }   from 'angular2/platform/browser';
-//import { appRouterProviders } from './app2/routes';
 
 @Component({
     selector: 'pm-app',

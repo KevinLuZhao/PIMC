@@ -30,7 +30,6 @@ System.register(['angular2/core', 'angular2/router', './home/welcome.component',
                 browser_1 = browser_1_1;
             }],
         execute: function() {
-            //import { appRouterProviders } from './app2/routes';
             PIMCComponent = (function () {
                 function PIMCComponent() {
                     this.title = "Kevin";
