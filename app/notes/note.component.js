@@ -32,6 +32,8 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
                     return this.noteService.getNotes()
                         .subscribe(function (notes) { return _this.noteList = notes; }, function (error) { return _this.errorMessage = error; });
                 };
+                NoteComponent.prototype.getNoteById = function (id) {
+                };
                 NoteComponent = __decorate([
                     core_1.Component({
                         selector: "pm-note",
