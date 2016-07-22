@@ -23,7 +23,18 @@ export class NoteComponent {
     
     constructor(private noteService: NoteService){}
     
-    ngOnInit() { this.getNotes(); }
+    ngOnInit() { 
+        const promise = new Promise((getNotes, reject) => {
+           this.getNotes();
+        });
+        promise.then((res) => {
+            for (var note of this.noteList){
+                note.Date = new Date(note.Date.toLocaleDateString());
+                alert(note.Date );
+            }
+        });
+        
+    }
     
     getNotes(){
         return this .noteService.getNotes()

@@ -34,7 +34,19 @@ System.register(['angular2/core', './note.service', './note.detail.component', '
                     this.selectedNodeId = 0;
                     this.PageTitle = "Note List";
                 }
-                NoteComponent.prototype.ngOnInit = function () { this.getNotes(); };
+                NoteComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    var promise = new Promise(function (getNotes, reject) {
+                        _this.getNotes();
+                    });
+                    promise.then(function (res) {
+                        for (var _i = 0, _a = _this.noteList; _i < _a.length; _i++) {
+                            var note = _a[_i];
+                            note.Date = new Date(note.Date.toLocaleDateString());
+                            alert(note.Date);
+                        }
+                    });
+                };
                 NoteComponent.prototype.getNotes = function () {
                     var _this = this;
                     return this.noteService.getNotes()
