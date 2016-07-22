@@ -1,6 +1,6 @@
 import { Component } from 'angular2/core'
 import { bootstrap } from 'angular2/platform/browser';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import { HTTP_PROVIDERS } from 'angular2/http';
 
 // Our main component
 import { PIMCComponent } from './app.component';

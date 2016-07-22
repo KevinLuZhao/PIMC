@@ -6,11 +6,11 @@
         <th>Date</th>
     </tr>
     <tr *ngFor='#note of noteList'>
-        <td><a (click)='onNotesSelected([note.Id])'>{{note.Subject}}</a></td>
+        <td><a (click)='onNotesSelected([note.Id])'>{{note.Subject}}</a></td> <!--Notice (click) -->
         <td>{{note.Date}}</td>
     </tr>
 </table>
 </div>
 <div>
-    <pm-note-detail [NoteId]=2></pm-note-detail>
+    <pm-note-detail [NoteId]='selectedNodeId'></pm-note-detail>
 </div>

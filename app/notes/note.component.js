@@ -1,4 +1,4 @@
-System.register(['angular2/core', './note.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './note.service', './note.detail.component', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, note_service_1;
+    var core_1, note_service_1, note_detail_component_1, http_1;
     var NoteComponent;
     return {
         setters:[
@@ -19,11 +19,19 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
             },
             function (note_service_1_1) {
                 note_service_1 = note_service_1_1;
+            },
+            function (note_detail_component_1_1) {
+                note_detail_component_1 = note_detail_component_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
+            //import { bootstrap }   from 'angular2/platform/browser';
             NoteComponent = (function () {
                 function NoteComponent(noteService) {
                     this.noteService = noteService;
+                    this.selectedNodeId = 0;
                     this.PageTitle = "Note List";
                 }
                 NoteComponent.prototype.ngOnInit = function () { this.getNotes(); };
@@ -33,16 +41,14 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
                         .subscribe(function (notes) { return _this.noteList = notes; }, function (error) { return _this.errorMessage = error; });
                 };
                 NoteComponent.prototype.onNotesSelected = function (id) {
-                    //NoteDetailComponent.NoteId = 
-                };
-                NoteComponent.prototype.getNoteById = function (id) {
+                    this.selectedNodeId = id;
                 };
                 NoteComponent = __decorate([
                     core_1.Component({
                         //selector: "pm-note",
-                        providers: [note_service_1.NoteService],
+                        providers: [note_service_1.NoteService, http_1.HTTP_PROVIDERS],
                         templateUrl: "app/notes/templates/note.component.html",
-                        directives: [NoteComponent]
+                        directives: [note_detail_component_1.NoteDetailComponent]
                     }), 
                     __metadata('design:paramtypes', [note_service_1.NoteService])
                 ], NoteComponent);
@@ -52,4 +58,5 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
         }
     }
 });
+//bootstrap(NoteComponent, [HTTP_PROVIDERS]); 
 //# sourceMappingURL=note.component.js.map

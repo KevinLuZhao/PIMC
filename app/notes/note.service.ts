@@ -4,6 +4,7 @@ import { Observable }     from 'rxjs/Observable'
 import { Note } from '../model/note'
 import 'rxjs/Rx'
 
+//Refer to https://angular.io/docs/ts/latest/guide/server-communication.html
 @Injectable()
 export class NoteService {
     constructor (private http: Http) {}
@@ -14,6 +15,12 @@ export class NoteService {
                         .map(this.extractData)
                         .catch(this.handleError);
     } 
+    
+    getNoteById(id): Observable<Note>{
+        return this.http.get(this._baseUrl + 'api/NotesApi/'+id)                       
+                        .map(this.extractData)
+                        .catch(this.handleError);
+    }
        
      private extractData(res: Response) {
         let body = res.json();

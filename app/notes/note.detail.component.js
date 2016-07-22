@@ -1,4 +1,4 @@
-System.register(['angular2/core', './note.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './note.service', '../model/note'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, note_service_1;
+    var core_1, note_service_1, note_1;
     var NoteDetailComponent;
     return {
         setters:[
@@ -19,19 +19,53 @@ System.register(['angular2/core', './note.service'], function(exports_1, context
             },
             function (note_service_1_1) {
                 note_service_1 = note_service_1_1;
+            },
+            function (note_1_1) {
+                note_1 = note_1_1;
             }],
         execute: function() {
             NoteDetailComponent = (function () {
-                function NoteDetailComponent() {
+                function NoteDetailComponent(noteService) {
+                    this.noteService = noteService;
+                    this.note = new note_1.Note();
+                    this.note.Subject = '';
+                    this.note.Date = new Date();
                 }
+                Object.defineProperty(NoteDetailComponent.prototype, "NoteId", {
+                    get: function () {
+                        return this._noteId;
+                    },
+                    //@Input() person: number;
+                    //onChange(map){
+                    //if(map.NoteId) {
+                    //console.log('doing crazy stuff here');
+                    //alert(map.NoteId); //SimpleChange {previousValue: 43, currentValue: 44}
+                    //}
+                    //alert("changed");
+                    //}
+                    set: function (newModelValue) {
+                        this._noteId = newModelValue;
+                        if (this._noteId > 0) {
+                            this.getNoteById(this._noteId);
+                        }
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                NoteDetailComponent.prototype.getNoteById = function (id) {
+                    var _this = this;
+                    return this.noteService.getNoteById(id)
+                        .subscribe(function (note) { return _this.note = note; }, function (error) { return _this.errorMessage = error; });
+                };
                 NoteDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-note-detail',
-                        templateUrl: 'app/note/templates/note.detail.components.html',
+                        templateUrl: 'app/notes/templates/note.detail.components.html',
                         providers: [note_service_1.NoteService],
-                        inputs: ['NoteId']
+                        //inputs:['NoteId']
+                        properties: ['NoteId']
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [note_service_1.NoteService])
                 ], NoteDetailComponent);
                 return NoteDetailComponent;
             }());

@@ -25,6 +25,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx']
             },
             function (_1) {}],
         execute: function() {
+            //Refer to https://angular.io/docs/ts/latest/guide/server-communication.html
             NoteService = (function () {
                 function NoteService(http) {
                     this.http = http;
@@ -32,6 +33,11 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx']
                 }
                 NoteService.prototype.getNotes = function () {
                     return this.http.get(this._baseUrl + 'api/NotesApi')
+                        .map(this.extractData)
+                        .catch(this.handleError);
+                };
+                NoteService.prototype.getNoteById = function (id) {
+                    return this.http.get(this._baseUrl + 'api/NotesApi/' + id)
                         .map(this.extractData)
                         .catch(this.handleError);
                 };
