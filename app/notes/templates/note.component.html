@@ -1,5 +1,5 @@
 <p3>{{PageTitle}}</p3>
-<div style="float:left; margin: 10px;">
+<div style="float:left; margin: 10px; height: 600px;">
 <table>
     <tr>
         <th>Subject</th>
@@ -11,6 +11,6 @@
     </tr>
 </table>
 </div>
-<div *ngIf="selectedNodeId>0" style="float:left" >
+<div *ngIf="selectedNodeId>0" style="float:left" style="width:600px">
     <pm-note-detail [NoteId]='selectedNodeId'></pm-note-detail>
 </div>

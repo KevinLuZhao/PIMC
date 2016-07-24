@@ -28,8 +28,6 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                 function NoteDetailComponent(noteService) {
                     this.noteService = noteService;
                     this.note = new note_1.Note();
-                    this.note.Subject = '';
-                    this.note.Date = new Date();
                 }
                 Object.defineProperty(NoteDetailComponent.prototype, "NoteId", {
                     get: function () {

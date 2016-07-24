@@ -16,8 +16,6 @@ export class NoteDetailComponent {
     
     constructor(private noteService: NoteService){
         this.note = new Note();
-        this.note.Subject='';
-        this.note.Date = new Date();
     }
     errorMessage: string;
     //@Input() person: number;
