@@ -20,28 +20,25 @@ export class NoteComponent {
     noteList: Note[];
     errorMessage: string;
     selectedNodeId: number = 0;
+    mode: string = 'view';
     
     constructor(private noteService: NoteService){}
     
     ngOnInit() { 
-        const promise = new Promise((getNotes, reject) => {
-           this.getNotes();
-        });
-        promise.then((res) => {
-            for (var note of this.noteList){
-                note.Date = new Date(note.Date.toLocaleDateString());
-                alert(note.Date );
-            }
-        });
-        
+        this.getNotes();
     }
     
     getNotes(){
         return this .noteService.getNotes()
                     .subscribe(
                         notes => this.noteList = notes,
-                        error => this.errorMessage = <any>error
-                    );
+                        error => this.errorMessage = <any>error,
+                        ()=>{
+                            for(var note of this.noteList){
+                                note.Date = new Date(note.Date).toLocaleDateString();
+                            }
+                        }
+                    );                
     }
     
     onNotesSelected(id){

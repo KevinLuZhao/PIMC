@@ -4,20 +4,19 @@ import { Note } from '../model/note';
 
 @Component({
     selector: 'pm-note-detail',
-    //templateUrl: 'app/notes/templates/note.detail.component.html',
     templateUrl: 'app/notes/templates/note.editor.component.html',
     providers: [NoteService],
     //inputs:['NoteId']
     properties: ['NoteId']
 })
 
-export class NoteDetailComponent {
+export class NoteEditorComponent {
     _noteId: Number;
-    note: Note;
+    //note: Note;
     
     @Output() Mode: string;
 
-    constructor(private noteService: NoteService){
+    constructor(private noteService: NoteService, private note: Note){
         this.note = new Note();
         //this._mode = 'view';
     }

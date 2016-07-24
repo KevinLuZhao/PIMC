@@ -11,7 +11,7 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, note_service_1, note_1;
-    var NoteDetailComponent;
+    var NoteEditorComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -24,13 +24,14 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                 note_1 = note_1_1;
             }],
         execute: function() {
-            NoteDetailComponent = (function () {
-                function NoteDetailComponent(noteService) {
+            NoteEditorComponent = (function () {
+                function NoteEditorComponent(noteService, note) {
                     this.noteService = noteService;
+                    this.note = note;
                     this.note = new note_1.Note();
                     //this._mode = 'view';
                 }
-                Object.defineProperty(NoteDetailComponent.prototype, "NoteId", {
+                Object.defineProperty(NoteEditorComponent.prototype, "NoteId", {
                     get: function () {
                         return this._noteId;
                     },
@@ -50,7 +51,7 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                 get Mode(){
                     return this._mode;
                 }*/
-                NoteDetailComponent.prototype.getNoteById = function (id) {
+                NoteEditorComponent.prototype.getNoteById = function (id) {
                     var _this = this;
                     return this.noteService.getNoteById(id)
                         .subscribe(function (note) { return _this.note = note; }, function (error) { return _this.errorMessage = error; }, function () {
@@ -60,22 +61,21 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', String)
-                ], NoteDetailComponent.prototype, "Mode", void 0);
-                NoteDetailComponent = __decorate([
+                ], NoteEditorComponent.prototype, "Mode", void 0);
+                NoteEditorComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-note-detail',
-                        //templateUrl: 'app/notes/templates/note.detail.component.html',
                         templateUrl: 'app/notes/templates/note.editor.component.html',
                         providers: [note_service_1.NoteService],
                         //inputs:['NoteId']
                         properties: ['NoteId']
                     }), 
-                    __metadata('design:paramtypes', [note_service_1.NoteService])
-                ], NoteDetailComponent);
-                return NoteDetailComponent;
+                    __metadata('design:paramtypes', [note_service_1.NoteService, note_1.Note])
+                ], NoteEditorComponent);
+                return NoteEditorComponent;
             }());
-            exports_1("NoteDetailComponent", NoteDetailComponent);
+            exports_1("NoteEditorComponent", NoteEditorComponent);
         }
     }
 });
-//# sourceMappingURL=note.detail.component.js.map
+//# sourceMappingURL=note.editor.component.js.map
