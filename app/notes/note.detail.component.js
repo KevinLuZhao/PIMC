@@ -57,6 +57,9 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                         _this.note.Date = new Date(_this.note.Date).toLocaleDateString();
                     });
                 };
+                NoteDetailComponent.prototype.editNote = function () {
+                    this.Mode = 'edit';
+                };
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', String)

@@ -3,7 +3,7 @@ import { NoteService } from './note.service';
 import { Note } from '../model/note';
 
 @Component({
-    selector: 'pm-note-detail',
+    selector: 'pm-note-editor',
     templateUrl: 'app/notes/templates/note.editor.component.html',
     providers: [NoteService],
     //inputs:['NoteId']

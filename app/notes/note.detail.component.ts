@@ -52,4 +52,8 @@ export class NoteDetailComponent {
                         }
                     );
     }
+    
+    editNote(){
+        this.Mode = 'edit';
+    }
 }

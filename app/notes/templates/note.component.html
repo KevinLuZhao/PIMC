@@ -11,6 +11,9 @@
     </tr>
 </table>
 </div>
-<div *ngIf="selectedNodeId > 0" style="float:left" style="width:600px">
+<div *ngIf="selectedNodeId > 0 && mode = 'view'" style="float:left" style="width:600px">
     <pm-note-detail [NoteId]='selectedNodeId' [Mode]='mode'></pm-note-detail>
+</div>
+<div *ngIf="mode = 'edit'" style="float:left" style="width:600px">
+    <pm-note-detail [NoteId]='selectedNodeId' [Mode]='mode'></pm-note-editor>
 </div>

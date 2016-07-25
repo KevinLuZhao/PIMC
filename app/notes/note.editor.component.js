@@ -64,7 +64,7 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                 ], NoteEditorComponent.prototype, "Mode", void 0);
                 NoteEditorComponent = __decorate([
                     core_1.Component({
-                        selector: 'pm-note-detail',
+                        selector: 'pm-note-editor',
                         templateUrl: 'app/notes/templates/note.editor.component.html',
                         providers: [note_service_1.NoteService],
                         //inputs:['NoteId']
