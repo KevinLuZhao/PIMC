@@ -1,0 +1,51 @@
+USE [PIMC]
+GO
+/****** Object:  StoredProcedure [dbo].[Notes_UpdateNotes]    Script Date: 2016-07-25 9:50:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[Notes_UpdateNotes] 
+( 
+        @Subject       nvarchar(100),
+        @Body       nvarchar(4000),
+        @Type       int,
+        @DateTime       date,
+        @ID       int
+) 
+AS 
+BEGIN 
+
+   UPDATE [dbo].[Notes]
+   SET
+       [Subject] = @Subject,
+       [Body] = @Body,
+       [Type] = @Type,
+       [DateTime] = @DateTime
+    WHERE
+       [ID] = @ID
+END
+
+USE [PIMC]
+GO
+/****** Object:  StoredProcedure [dbo].[Notes_InsertNotes]    Script Date: 2016-07-26 12:17:55 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[Notes_InsertNotes] 
+( 
+        @Subject       nvarchar(100),
+        @Body       nvarchar(4000),
+        @Type       int,
+        @DateTime       date
+) 
+AS 
+BEGIN 
+
+   INSERT INTO [dbo].[Notes]
+        ([Subject], [Body], [Type], [DateTime])
+   VALUES
+        (@Subject, @Body, @Type, @DateTime)
+
+END
