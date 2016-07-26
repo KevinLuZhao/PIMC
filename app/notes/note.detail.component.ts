@@ -1,11 +1,11 @@
-import { Component, Input, Output } from 'angular2/core';
+import { Component, Input, Output, EventEmitter } from 'angular2/core';
 import { NoteService } from './note.service';
 import { Note } from '../model/note';
 
 @Component({
     selector: 'pm-note-detail',
-    //templateUrl: 'app/notes/templates/note.detail.component.html',
-    templateUrl: 'app/notes/templates/note.editor.component.html',
+    templateUrl: 'app/notes/templates/note.detail.component.html',
+    //templateUrl: 'app/notes/templates/note.editor.component.html',
     providers: [NoteService],
     //inputs:['NoteId']
     properties: ['NoteId']
@@ -15,11 +15,10 @@ export class NoteDetailComponent {
     _noteId: Number;
     note: Note;
     
-    @Output() Mode: string;
+    @Output() changeMode: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(private noteService: NoteService){
         this.note = new Note();
-        //this._mode = 'view';
     }
     errorMessage: string;
     
@@ -33,14 +32,6 @@ export class NoteDetailComponent {
     get NoteId() {
         return this._noteId;
     }
-
-    /*set Mode(newModelValue){
-        this._mode = newModelValue;
-    }
-
-    get Mode(){
-        return this._mode;
-    }*/
     
     getNoteById(id){
         return this .noteService.getNoteById(id)
@@ -54,6 +45,6 @@ export class NoteDetailComponent {
     }
     
     editNote(){
-        this.Mode = 'edit';
+        this.changeMode.emit('edit');
     }
 }

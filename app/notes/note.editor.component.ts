@@ -1,4 +1,4 @@
-import { Component, Input, Output } from 'angular2/core';
+import { Component, Input, Output, EventEmitter } from 'angular2/core';
 import { NoteService } from './note.service';
 import { Note } from '../model/note';
 
@@ -11,44 +11,21 @@ import { Note } from '../model/note';
 })
 
 export class NoteEditorComponent {
-    _noteId: Number;
+    //_noteId: Number;
     //note: Note;
     
-    @Output() Mode: string;
+    @Input() Note: Note;
+    @Output() changeMode: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor(private noteService: NoteService, private note: Note){
-        this.note = new Note();
-        //this._mode = 'view';
+    constructor(private noteService: NoteService){
+        this.Note = new Note();
+        this.Note.Subject ="Subject Mock";
+        this.Note.Body ="Body Mock";
     }
     errorMessage: string;
-    
-    set NoteId(newModelValue) {
-        this._noteId = newModelValue;
-        if (this._noteId > 0){
-            this.getNoteById(this._noteId);
-        }
-    }
 
-    get NoteId() {
-        return this._noteId;
-    }
-
-    /*set Mode(newModelValue){
-        this._mode = newModelValue;
-    }
-
-    get Mode(){
-        return this._mode;
-    }*/
-    
-    getNoteById(id){
-        return this .noteService.getNoteById(id)
-                    .subscribe(
-                        note => this.note = note,
-                        error => this.errorMessage = <any>error,
-                        ()=>{
-                            this.note.Date = new Date(this.note.Date).toLocaleDateString();
-                        }
-                    );
+    saveNote(){
+        
+        this.changeMode.emit('view');
     }
 }

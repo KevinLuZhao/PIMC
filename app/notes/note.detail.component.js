@@ -27,8 +27,8 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
             NoteDetailComponent = (function () {
                 function NoteDetailComponent(noteService) {
                     this.noteService = noteService;
+                    this.changeMode = new core_1.EventEmitter();
                     this.note = new note_1.Note();
-                    //this._mode = 'view';
                 }
                 Object.defineProperty(NoteDetailComponent.prototype, "NoteId", {
                     get: function () {
@@ -43,13 +43,6 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                     enumerable: true,
                     configurable: true
                 });
-                /*set Mode(newModelValue){
-                    this._mode = newModelValue;
-                }
-            
-                get Mode(){
-                    return this._mode;
-                }*/
                 NoteDetailComponent.prototype.getNoteById = function (id) {
                     var _this = this;
                     return this.noteService.getNoteById(id)
@@ -58,17 +51,17 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                     });
                 };
                 NoteDetailComponent.prototype.editNote = function () {
-                    this.Mode = 'edit';
+                    this.changeMode.emit('edit');
                 };
                 __decorate([
                     core_1.Output(), 
-                    __metadata('design:type', String)
-                ], NoteDetailComponent.prototype, "Mode", void 0);
+                    __metadata('design:type', core_1.EventEmitter)
+                ], NoteDetailComponent.prototype, "changeMode", void 0);
                 NoteDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-note-detail',
-                        //templateUrl: 'app/notes/templates/note.detail.component.html',
-                        templateUrl: 'app/notes/templates/note.editor.component.html',
+                        templateUrl: 'app/notes/templates/note.detail.component.html',
+                        //templateUrl: 'app/notes/templates/note.editor.component.html',
                         providers: [note_service_1.NoteService],
                         //inputs:['NoteId']
                         properties: ['NoteId']

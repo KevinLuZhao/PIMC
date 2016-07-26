@@ -1,5 +1,6 @@
 <div>
-<center><h3>{{note.Subject}}</h3></center>
-<input [(ngModel)] ='note.Date' /><br />
-<textarea [(ngModel)]="note.Body" rows=20 cols=50 > </textarea>
+    <center><h3>{{Note.Subject}}</h3></center>
+    <input [(ngModel)] ='Note.Date' /><br />
+    <textarea [(ngModel)]="Note.Body" rows=20 cols=50 > </textarea>
+    <button (click)='saveNote()' value="Save" >Save</button>
 <div>

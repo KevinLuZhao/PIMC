@@ -41,6 +41,10 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx']
                         .map(this.extractData)
                         .catch(this.handleError);
                 };
+                NoteService.prototype.SaveNote = function (note) {
+                    this.http.
+                    ;
+                };
                 NoteService.prototype.extractData = function (res) {
                     var body = res.json();
                     return body || {};

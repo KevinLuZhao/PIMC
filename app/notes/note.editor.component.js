@@ -25,43 +25,24 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
             }],
         execute: function() {
             NoteEditorComponent = (function () {
-                function NoteEditorComponent(noteService, note) {
+                function NoteEditorComponent(noteService) {
                     this.noteService = noteService;
-                    this.note = note;
-                    this.note = new note_1.Note();
-                    //this._mode = 'view';
+                    this.changeMode = new core_1.EventEmitter();
+                    this.Note = new note_1.Note();
+                    this.Note.Subject = "Subject Mock";
+                    this.Note.Body = "Body Mock";
                 }
-                Object.defineProperty(NoteEditorComponent.prototype, "NoteId", {
-                    get: function () {
-                        return this._noteId;
-                    },
-                    set: function (newModelValue) {
-                        this._noteId = newModelValue;
-                        if (this._noteId > 0) {
-                            this.getNoteById(this._noteId);
-                        }
-                    },
-                    enumerable: true,
-                    configurable: true
-                });
-                /*set Mode(newModelValue){
-                    this._mode = newModelValue;
-                }
-            
-                get Mode(){
-                    return this._mode;
-                }*/
-                NoteEditorComponent.prototype.getNoteById = function (id) {
-                    var _this = this;
-                    return this.noteService.getNoteById(id)
-                        .subscribe(function (note) { return _this.note = note; }, function (error) { return _this.errorMessage = error; }, function () {
-                        _this.note.Date = new Date(_this.note.Date).toLocaleDateString();
-                    });
+                NoteEditorComponent.prototype.saveNote = function () {
+                    this.changeMode.emit('view');
                 };
                 __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', note_1.Note)
+                ], NoteEditorComponent.prototype, "Note", void 0);
+                __decorate([
                     core_1.Output(), 
-                    __metadata('design:type', String)
-                ], NoteEditorComponent.prototype, "Mode", void 0);
+                    __metadata('design:type', core_1.EventEmitter)
+                ], NoteEditorComponent.prototype, "changeMode", void 0);
                 NoteEditorComponent = __decorate([
                     core_1.Component({
                         selector: 'pm-note-editor',
@@ -70,7 +51,7 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                         //inputs:['NoteId']
                         properties: ['NoteId']
                     }), 
-                    __metadata('design:paramtypes', [note_service_1.NoteService, note_1.Note])
+                    __metadata('design:paramtypes', [note_service_1.NoteService])
                 ], NoteEditorComponent);
                 return NoteEditorComponent;
             }());

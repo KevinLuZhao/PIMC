@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core';
-import { Http, Response } from 'angular2/http'
+import { Http, Response, Headers } from 'angular2/http'
 import { Observable }     from 'rxjs/Observable'
 import { Note } from '../model/note'
 import 'rxjs/Rx'
@@ -21,11 +21,32 @@ export class NoteService {
                         .map(this.extractData)
                         .catch(this.handleError);
     }
+
+    SaveNote(note){
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        this.http.post('http://localhost:3001/sessions/create', note, {
+            headers: headers
+        })
+                .map(res => res.json())
+                .subscribe(
+                    //data => this.saveJwt(data.id_token),
+                    //err => this.logError(err),
+                    () => alert("Note saveed")
+                );
+    }
        
      private extractData(res: Response) {
         let body = res.json();
         return body || { };
-     }  
+     } 
+
+     saveJwt(jwt) {
+        if(jwt) {
+            localStorage.setItem('id_token', jwt)
+        }
+    } 
      
      private handleError (error: any) {
         let errMsg = (error.message) ? error.message :
