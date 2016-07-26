@@ -26,13 +26,13 @@ export class NoteService {
         var headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        this.http.post('http://localhost:3001/sessions/create', note, {
+        this.http.post(this._baseUrl + '/api/NotesApi', JSON.stringify(note), {
             headers: headers
         })
                 .map(res => res.json())
                 .subscribe(
-                    //data => this.saveJwt(data.id_token),
-                    //err => this.logError(err),
+                    data => this.saveJwt(data.id_token),
+                    err => this.handleError(err),
                     () => alert("Note saveed")
                 );
     }
@@ -51,7 +51,8 @@ export class NoteService {
      private handleError (error: any) {
         let errMsg = (error.message) ? error.message :
         error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
+        //console.error(errMsg); // log to console instead
+        alert(errMsg);
         return Observable.throw(errMsg);
     }    
 }

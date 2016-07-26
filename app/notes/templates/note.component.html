@@ -1,4 +1,3 @@
-<p3>{{PageTitle}}</p3>
 <div style="float:left; margin: 10px; height: 600px;">
 <table>
     <tr>
@@ -12,11 +11,8 @@
 </table>
 </div>
 <div *ngIf="selectedNodeId > 0 && mode == 'view'" style="float:left" style="width:600px">
-{{selectedNote.Subject}}
     <pm-note-detail [NoteId]='selectedNodeId' (changeMode)='onChangeMode($event)'></pm-note-detail>
 </div>
 <div *ngIf="mode == 'edit'" style="float:left" style="width:600px">
-{{selectedNote.Subject}}
-    {{mode}}
     <pm-note-editor [Note]='selectedNote' (changeMode)='onChangeMode($event)'></pm-note-editor>
 </div>

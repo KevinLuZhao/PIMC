@@ -28,11 +28,12 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                 function NoteEditorComponent(noteService) {
                     this.noteService = noteService;
                     this.changeMode = new core_1.EventEmitter();
-                    this.Note = new note_1.Note();
-                    this.Note.Subject = "Subject Mock";
-                    this.Note.Body = "Body Mock";
+                    //this.note = new Note();
+                    /*this.note.Subject ="Subject Mock";
+                    this.note.Body ="Body Mock";*/
                 }
                 NoteEditorComponent.prototype.saveNote = function () {
+                    this.noteService.SaveNote(this.Note);
                     this.changeMode.emit('view');
                 };
                 __decorate([

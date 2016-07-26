@@ -18,14 +18,14 @@ export class NoteEditorComponent {
     @Output() changeMode: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(private noteService: NoteService){
-        this.Note = new Note();
-        this.Note.Subject ="Subject Mock";
-        this.Note.Body ="Body Mock";
+        //this.note = new Note();
+        /*this.note.Subject ="Subject Mock";
+        this.note.Body ="Body Mock";*/
     }
     errorMessage: string;
 
     saveNote(){
-        
+        this.noteService.SaveNote(this.Note);
         this.changeMode.emit('view');
     }
 }

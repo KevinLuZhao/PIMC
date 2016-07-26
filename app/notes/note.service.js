@@ -42,17 +42,29 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx']
                         .catch(this.handleError);
                 };
                 NoteService.prototype.SaveNote = function (note) {
-                    this.http.
-                    ;
+                    var _this = this;
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+                    this.http.post(this._baseUrl + '/api/NotesApi', JSON.stringify(note), {
+                        headers: headers
+                    })
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { return _this.saveJwt(data.id_token); }, function (err) { return _this.handleError(err); }, function () { return alert("Note saveed"); });
                 };
                 NoteService.prototype.extractData = function (res) {
                     var body = res.json();
                     return body || {};
                 };
+                NoteService.prototype.saveJwt = function (jwt) {
+                    if (jwt) {
+                        localStorage.setItem('id_token', jwt);
+                    }
+                };
                 NoteService.prototype.handleError = function (error) {
                     var errMsg = (error.message) ? error.message :
                         error.status ? error.status + " - " + error.statusText : 'Server error';
-                    console.error(errMsg); // log to console instead
+                    //console.error(errMsg); // log to console instead
+                    alert(errMsg);
                     return Observable_1.Observable.throw(errMsg);
                 };
                 NoteService = __decorate([

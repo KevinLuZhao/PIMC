@@ -1,6 +1,6 @@
 export class Note {
     Id :Number;
-    Date: string;
+    Date: Date;
     Subject: string;
     Body:string;
     TypeInt: number;
