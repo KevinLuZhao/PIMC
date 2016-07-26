@@ -41,5 +41,33 @@ namespace PIMC.Database
             };
             return note;
         }
+
+        public void InsertNote(Note note)
+        {
+            List<SqlParameter> lstParams = GenerateParams(note);
+            SqlHelper.ExecuteStoredProcedure(
+                "Notes_InsertNotes",
+                lstParams.ToArray());
+        }
+
+        public void UpdateNote(Note note)
+        {
+            List<SqlParameter> lstParams = GenerateParams(note);
+            lstParams.Add(new SqlParameter("@ID", note.Id));
+            SqlHelper.ExecuteStoredProcedure(
+                "Notes_UpdateNotes",
+                lstParams.ToArray());
+        }
+
+        private List<SqlParameter> GenerateParams(Note note)
+        {
+            return new List<SqlParameter>
+                {
+                    new SqlParameter("@Subject", note.Subject),
+                    new SqlParameter("@Body", note.Body),
+                    new SqlParameter("@Type", note.Type),
+                    new SqlParameter("@DateTime", note.Date)
+                };
+        }
     }
 }

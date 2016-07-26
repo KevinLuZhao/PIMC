@@ -11,23 +11,26 @@ namespace PIMC_ApiServices.Controllers
 {
     public class NotesApiController : ApiController
     {
+        NotesManager manager = new NotesManager();
         // GET: api/NotesApi
         public List<Note> Get()
         {
-            NotesManager manager = new NotesManager();
             return manager.GetNoteList();
         }
 
         // GET: api/NotesWebApi/5
         public Note Get(int id)
         {
-            NotesManager manager = new NotesManager();
             return manager.GetNoteByID(id);
         }
 
         // POST: api/NotesApi
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Note note)
         {
+            if (note.Id == 0)
+                manager.InsertNote(note);
+            else
+                manager.UpdateNote(note);
         }
 
         // PUT: api/NotesApi/5

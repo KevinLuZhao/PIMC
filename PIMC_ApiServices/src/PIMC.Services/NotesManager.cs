@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using PIMC.Database;
 using PIMC.Model;
 
@@ -19,6 +15,16 @@ namespace PIMC.Services
         public Note GetNoteByID(int id)
         {
             return db.GetNoteByID(id);
+        }
+
+        public void InsertNote(Note note)
+        {
+            db.InsertNote(note);
+        }
+
+        public void UpdateNote(Note note)
+        {
+            db.UpdateNote(note);
         }
     }
 }
