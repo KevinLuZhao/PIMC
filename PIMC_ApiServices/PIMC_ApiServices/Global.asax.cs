@@ -23,6 +23,7 @@ namespace PIMC_ApiServices
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT");
         }
     }
 }

@@ -24,14 +24,15 @@ export class NoteService {
 
     SaveNote(note){
         var headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        //headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Content-Type', 'application/json');
 
         this.http.post(this._baseUrl + '/api/NotesApi', JSON.stringify(note), {
             headers: headers
         })
                 .map(res => res.json())
                 .subscribe(
-                    data => this.saveJwt(data.id_token),
+                    //data => this.saveJwt(data.id_token),
                     err => this.handleError(err),
                     () => alert("Note saveed")
                 );

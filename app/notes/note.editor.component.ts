@@ -18,9 +18,6 @@ export class NoteEditorComponent {
     @Output() changeMode: EventEmitter<string> = new EventEmitter<string>();
 
     constructor(private noteService: NoteService){
-        //this.note = new Note();
-        /*this.note.Subject ="Subject Mock";
-        this.note.Body ="Body Mock";*/
     }
     errorMessage: string;
 
