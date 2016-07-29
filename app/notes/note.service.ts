@@ -22,20 +22,16 @@ export class NoteService {
                         .catch(this.handleError);
     }
 
-    SaveNote(note){
+    SaveNote(note):Observable<Response>{
         var headers = new Headers();
-        //headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        //headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
         headers.append('Content-Type', 'application/json');
 
-        this.http.post(this._baseUrl + '/api/NotesApi', JSON.stringify(note), {
+        return this.http.post(this._baseUrl + '/api/NotesApi', JSON.stringify(note), {
             headers: headers
         })
-                .map(res => res.json())
-                .subscribe(
-                    //data => this.saveJwt(data.id_token),
-                    err => this.handleError(err),
-                    () => alert("Note saveed")
-                );
+        .map(res => res.json())
+        .catch(this.handleError);
     }
        
      private extractData(res: Response) {

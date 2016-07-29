@@ -22,7 +22,10 @@ export class NoteEditorComponent {
     errorMessage: string;
 
     saveNote(){
-        this.noteService.SaveNote(this.Note);
-        this.changeMode.emit('view');
+        this.noteService.SaveNote(this.Note)
+        .subscribe(
+            ()=>{this.changeMode.emit('refresh');}
+        );
+        
     }
 }

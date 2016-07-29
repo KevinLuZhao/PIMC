@@ -30,8 +30,9 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                     this.changeMode = new core_1.EventEmitter();
                 }
                 NoteEditorComponent.prototype.saveNote = function () {
-                    this.noteService.SaveNote(this.Note);
-                    this.changeMode.emit('view');
+                    var _this = this;
+                    this.noteService.SaveNote(this.Note)
+                        .subscribe(function () { _this.changeMode.emit('refresh'); });
                 };
                 __decorate([
                     core_1.Input(), 

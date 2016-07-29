@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using PIMC.Database;
 using PIMC.Model;
 
@@ -19,11 +20,13 @@ namespace PIMC.Services
 
         public void InsertNote(Note note)
         {
+            note.Date = DateTime.Now;
             db.InsertNote(note);
         }
 
         public void UpdateNote(Note note)
         {
+            note.Date = DateTime.Now;
             db.UpdateNote(note);
         }
     }

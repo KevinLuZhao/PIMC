@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
+//using System.Web.Mvc;
 using PIMC.Model;
 using PIMC.Services;
 using System.Web.Script.Services;
@@ -27,6 +27,7 @@ namespace PIMC_ApiServices.Controllers
         }
 
         // POST: api/NotesApi
+        [HttpPost]
         public void Post([FromBody]Note note)
         {
             if (note.Id == 0)

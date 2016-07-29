@@ -1,4 +1,4 @@
-System.register(['angular2/core', './note.service', './note.detail.component', './note.editor.component', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/core', './note.service', '../model/note', './note.detail.component', './note.editor.component', 'angular2/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './note.service', './note.detail.component', '
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, note_service_1, note_detail_component_1, note_editor_component_1, http_1;
+    var core_1, note_service_1, note_1, note_detail_component_1, note_editor_component_1, http_1;
     var NoteComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', './note.service', './note.detail.component', '
             },
             function (note_service_1_1) {
                 note_service_1 = note_service_1_1;
+            },
+            function (note_1_1) {
+                note_1 = note_1_1;
             },
             function (note_detail_component_1_1) {
                 note_detail_component_1 = note_detail_component_1_1;
@@ -36,7 +39,6 @@ System.register(['angular2/core', './note.service', './note.detail.component', '
                     this.noteService = noteService;
                     this.selectedNodeId = 0;
                     this.mode = 'view';
-                    this.PageTitle = "Note List";
                 }
                 NoteComponent.prototype.ngOnInit = function () {
                     this.getNotes();
@@ -52,6 +54,13 @@ System.register(['angular2/core', './note.service', './note.detail.component', '
                         }
                     });
                 };
+                NoteComponent.prototype.createNewNote = function () {
+                    this.selectedNodeId = 0;
+                    this.selectedNote = new note_1.Note();
+                    this.selectedNote.Subject = '';
+                    this.selectedNote.Body = '';
+                    this.onChangeMode('edit');
+                };
                 NoteComponent.prototype.onNotesSelected = function (id) {
                     this.selectedNodeId = id;
                     this.onChangeMode('view');
@@ -59,6 +68,9 @@ System.register(['angular2/core', './note.service', './note.detail.component', '
                 };
                 NoteComponent.prototype.onChangeMode = function (mode) {
                     this.mode = mode;
+                    if (mode == 'refresh') {
+                        this.getNotes();
+                    }
                 };
                 NoteComponent = __decorate([
                     core_1.Component({
@@ -75,5 +87,4 @@ System.register(['angular2/core', './note.service', './note.detail.component', '
         }
     }
 });
-//bootstrap(NoteComponent, [HTTP_PROVIDERS]); 
 //# sourceMappingURL=note.component.js.map

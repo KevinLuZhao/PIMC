@@ -1,18 +1,19 @@
 <div style="float:left; margin: 10px; height: 600px;">
-<table>
-    <tr>
-        <th>Subject</th>
-        <th>Date</th>
-    </tr>
-    <tr *ngFor='#note of noteList'>
-        <td><a (click)='onNotesSelected([note.Id])'>{{note.Subject}}</a></td> <!--Notice (click) -->
-        <td>{{note.Date}}</td>
-    </tr>
-</table>
+    <button (click)='createNewNote()'>Create New</button>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor='#note of noteList'>
+            <td><a (click)='onNotesSelected([note.Id])'>{{note.Subject}}</a></td> <!--Notice (click) -->
+            <td>{{note.Date}}</td>
+        </tr>
+    </table>
 </div>
 <div *ngIf="selectedNodeId > 0 && mode == 'view'" style="float:left" style="width:600px">
     <pm-note-detail [NoteId]='selectedNodeId' (changeMode)='onChangeMode($event)'></pm-note-detail>
 </div>
-<div *ngIf="mode == 'edit'" style="float:left" style="width:600px">
+<div *ngIf="mode == 'edit'" style="float:left" style="width:800px">
     <pm-note-editor [Note]='selectedNote' (changeMode)='onChangeMode($event)'></pm-note-editor>
 </div>

@@ -39,6 +39,14 @@ export class NoteComponent {
                         }
                     );                
     }
+
+    createNewNote(){
+        this.selectedNodeId = 0;
+        this.selectedNote = new Note();
+        this.selectedNote.Subject = '';
+        this.selectedNote.Body =  '';
+        this.onChangeMode('edit');
+    }
     
     onNotesSelected(id){
         this.selectedNodeId = id;
@@ -48,7 +56,8 @@ export class NoteComponent {
     
     onChangeMode(mode: string){
         this.mode = mode;
+        if (mode == 'refresh'){
+            this.getNotes();
+        }
     }
-    PageTitle: string = "Note List";
 }
-//bootstrap(NoteComponent, [HTTP_PROVIDERS]);
