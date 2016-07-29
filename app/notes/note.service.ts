@@ -22,6 +22,7 @@ export class NoteService {
                         .catch(this.handleError);
     }
 
+    //SaveNote(note):Observable<Response>{
     SaveNote(note):Observable<Response>{
         var headers = new Headers();
         //headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
@@ -49,7 +50,7 @@ export class NoteService {
         let errMsg = (error.message) ? error.message :
         error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         //console.error(errMsg); // log to console instead
-        alert(errMsg);
+        //alert(errMsg);
         return Observable.throw(errMsg);
     }    
 }

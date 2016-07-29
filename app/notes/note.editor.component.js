@@ -32,7 +32,7 @@ System.register(['angular2/core', './note.service', '../model/note'], function(e
                 NoteEditorComponent.prototype.saveNote = function () {
                     var _this = this;
                     this.noteService.SaveNote(this.Note)
-                        .subscribe(function () { _this.changeMode.emit('refresh'); });
+                        .subscribe(function (error) { return _this.errorMessage = error; }, function () { _this.changeMode.emit('refresh'); });
                 };
                 __decorate([
                     core_1.Input(), 

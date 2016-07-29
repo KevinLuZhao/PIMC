@@ -24,6 +24,7 @@ export class NoteEditorComponent {
     saveNote(){
         this.noteService.SaveNote(this.Note)
         .subscribe(
+            error => this.errorMessage = <any>error,
             ()=>{this.changeMode.emit('refresh');}
         );
         

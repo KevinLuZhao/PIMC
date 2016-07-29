@@ -41,6 +41,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx']
                         .map(this.extractData)
                         .catch(this.handleError);
                 };
+                //SaveNote(note):Observable<Response>{
                 NoteService.prototype.SaveNote = function (note) {
                     var headers = new http_1.Headers();
                     //headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
@@ -64,7 +65,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx']
                     var errMsg = (error.message) ? error.message :
                         error.status ? error.status + " - " + error.statusText : 'Server error';
                     //console.error(errMsg); // log to console instead
-                    alert(errMsg);
+                    //alert(errMsg);
                     return Observable_1.Observable.throw(errMsg);
                 };
                 NoteService = __decorate([
